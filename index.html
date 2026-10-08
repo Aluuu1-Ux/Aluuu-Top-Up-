@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fire Diamond Top Up</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b12;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0 10px;
+      color: #ffd43b;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    .box {
+      background: #171722;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #ddd;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #333;
+      border-radius: 10px;
+      background: #0d0d14;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .diamonds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .diamond {
+      padding: 15px;
+      background: #242433;
+      border: 1px solid #333;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .diamond:hover {
+      border-color: #ffd43b;
+    }
+
+    .order {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #ffd43b;
+      color: #111;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      color: #7cff9b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>💎 Free Fire Top Up</h1>
+    <p class="subtitle">দ্রুত ও সহজ Diamond Top Up Demo</p>
+
+    <div class="box">
+      <label>Free Fire UID</label>
+      <input id="uid" type="text" placeholder="আপনার UID লিখুন">
+
+      <label>Diamond Package</label>
+
+      <div class="diamonds">
+        <button class="diamond" onclick="selectDiamond(100)">💎 100 Diamonds</button>
+        <button class="diamond" onclick="selectDiamond(310)">💎 310 Diamonds</button>
+        <button class="diamond" onclick="selectDiamond(520)">💎 520 Diamonds</button>
+        <button class="diamond" onclick="selectDiamond(1060)">💎 1060 Diamonds</button>
+      </div>
+    </div>
+
+    <div class="box">
+      <button class="order" onclick="placeOrder()">Order Now</button>
+      <p id="message"></p>
+    </div>
+
+  </div>
+
+  <script>
+    let selectedDiamond = 0;
+
+    function selectDiamond(amount) {
+      selectedDiamond = amount;
+      document.getElementById("message").innerText =
+        amount + " Diamonds selected";
+    }
+
+    function placeOrder() {
+      const uid = document.getElementById("uid").value;
+
+      if (!uid) {
+        document.getElementById("message").innerText =
+          "প্রথমে UID লিখুন।";
+        return;
+      }
+
+      if (!selectedDiamond) {
+        document.getElementById("message").innerText =
+          "একটি Diamond Package নির্বাচন করুন।";
+        return;
+      }
+
+      document.getElementById("message").innerText =
+        "Demo Order: " + selectedDiamond + " Diamonds — UID: " + uid;
+    }
+  </script>
+
+</body>
+</html>
